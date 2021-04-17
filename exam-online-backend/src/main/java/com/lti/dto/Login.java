@@ -1,5 +1,7 @@
 package com.lti.dto;
 
+//******************* Login DTO ************************
+
 public class Login {
 	
 	private String email;

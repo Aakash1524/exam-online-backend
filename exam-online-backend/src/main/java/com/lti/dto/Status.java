@@ -1,5 +1,7 @@
 package com.lti.dto;
 
+//********************************* Status ********************************
+
 public class Status {
 	
 	private String message;

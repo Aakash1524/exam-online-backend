@@ -13,6 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+//***************************** User Entity ******************************
 @Entity
 @Table(name = "tbl_users_1")
 public class User {

@@ -1,5 +1,7 @@
 package com.lti.dto;
 
+//******************** Login Status **************************
+
 public class LoginStatus extends Status{
 	
 	private int userId;

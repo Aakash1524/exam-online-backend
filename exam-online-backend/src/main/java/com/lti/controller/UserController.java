@@ -13,6 +13,8 @@ import com.lti.entity.User;
 import com.lti.exception.UserServiceException;
 import com.lti.service.UserService;
 
+//*************************** User Controller **************************
+
 @RestController
 @CrossOrigin
 public class UserController {

@@ -1,5 +1,7 @@
 package com.lti.dto;
 
+//********************************* Registration Status ********************************
+
 public class RegisterStatus extends Status{
 	private int registeredUserId;
 
