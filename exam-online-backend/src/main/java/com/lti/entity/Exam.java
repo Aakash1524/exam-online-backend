@@ -1,4 +1,4 @@
-package com.lti.entity;
+/*package com.lti.entity;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -59,4 +59,4 @@ public class Exam {
 	}
 	
 	
-}
+}*/

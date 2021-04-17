@@ -7,16 +7,19 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tbl_users")
+@Table(name = "tbl_users_1")
 public class User {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "my_seq")
+	@SequenceGenerator(sequenceName = "user_seq", allocationSize = 1, name = "my_seq")
 	@Column(name = "user_id")
     private int id;
 	
@@ -39,7 +42,7 @@ public class User {
     private String gender;
 	
 	@Column(name = "phone_no")
-    private int phoneNo;
+    private String phoneNo;
 	
 	@Column(name = "password")
     private String password;
@@ -47,8 +50,8 @@ public class User {
 	@Column(name = "qualification")
     private String qualification;
 	
-	@Column(name = "rights")
-    private String rights;
+	/*@Column(name = "rights")
+    private String rights;*/
 	
 	@Column(name = "city")
 	private String city;
@@ -57,7 +60,7 @@ public class User {
 	private String state;
     
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    /*@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<UserAnswer> userAnswers;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
@@ -85,12 +88,14 @@ public class User {
 	public void setResults(List<Result> results) {
 		this.results = results;
 	}
+	
 	public String getRights() {
 		return rights;
 	}
 	public void setRights(String rights) {
 		this.rights = rights;
-	}
+	}*/
+	
 	public int getId() {
         return id;
     }
@@ -133,10 +138,10 @@ public class User {
     public void setGender(String gender) {
         this.gender = gender;
     }
-    public int getPhoneNo() {
+    public String getPhoneNo() {
         return phoneNo;
     }
-    public void setPhoneNo(int phoneNo) {
+    public void setPhoneNo(String phoneNo) {
         this.phoneNo = phoneNo;
     }
     public String getPassword() {

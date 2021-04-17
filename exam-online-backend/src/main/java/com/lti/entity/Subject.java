@@ -1,4 +1,4 @@
-package com.lti.entity;
+/*package com.lti.entity;
 
 
 import java.util.List;
@@ -62,4 +62,4 @@ public class Subject {
 	public void setSubName(String subName) {
 		this.subName = subName;
 	}
-}
+}*/

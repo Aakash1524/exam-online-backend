@@ -1,4 +1,4 @@
-package com.lti.entity;
+/*package com.lti.entity;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -136,4 +136,4 @@ public class QuestionBank {
 	public void setHint(String hint) {
 		this.hint = hint;
 	}
-}
+}*/
