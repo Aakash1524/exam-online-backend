@@ -60,7 +60,6 @@ public class User {
 	@Column(name = "state")
 	private String state;
     
-    
     /*@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<UserAnswer> userAnswers;
     

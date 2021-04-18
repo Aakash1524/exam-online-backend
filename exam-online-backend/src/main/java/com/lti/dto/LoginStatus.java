@@ -6,6 +6,7 @@ public class LoginStatus extends Status{
 	
 	private int userId;
 	private String name;
+	
 	public int getUserId() {
 		return userId;
 	}
