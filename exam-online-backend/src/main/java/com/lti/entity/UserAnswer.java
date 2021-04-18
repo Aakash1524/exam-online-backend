@@ -1,4 +1,4 @@
-/*package com.lti.entity;
+package com.lti.entity;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -63,4 +63,4 @@ public class UserAnswer {
 	public void setAnswerGiven(String answerGiven) {
 		this.answerGiven = answerGiven;
 	}
-}*/
+}

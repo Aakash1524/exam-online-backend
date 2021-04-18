@@ -60,7 +60,7 @@ public class User {
 	@Column(name = "state")
 	private String state;
     
-    /*@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<UserAnswer> userAnswers;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
@@ -89,7 +89,7 @@ public class User {
 		this.results = results;
 	}
 	
-	public String getRights() {
+	/*public String getRights() {
 		return rights;
 	}
 	public void setRights(String rights) {

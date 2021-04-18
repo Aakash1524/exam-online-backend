@@ -1,4 +1,4 @@
-/*package com.lti.entity;
+package com.lti.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -61,4 +61,4 @@ public class Result {
 	public void setAttempts(int attempts) {
 		this.attempts = attempts;
 	}
-}*/
+}
