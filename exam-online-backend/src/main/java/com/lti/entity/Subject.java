@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tbl_subjects")
+@Table(name = "tbl_subjects_boot")
 public class Subject {
 	@Id
 	@GeneratedValue

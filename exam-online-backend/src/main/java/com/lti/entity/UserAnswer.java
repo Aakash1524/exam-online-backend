@@ -11,7 +11,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tbl_user_answer")
+@Table(name = "tbl_user_answer_boot")
 public class UserAnswer {
 	@Id
 	@GeneratedValue

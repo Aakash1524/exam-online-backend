@@ -11,7 +11,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tbl_question_bank")
+@Table(name = "tbl_question_bank_boot")
 public class QuestionBank {
 	@Id
 	@GeneratedValue
