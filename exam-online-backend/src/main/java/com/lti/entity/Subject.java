@@ -22,7 +22,7 @@ public class Subject {
 	@Column(name = "subject_name")
 	private String subName;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "subjects" )
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "subject" )
 	private List<QuestionBank> questions;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "subject")

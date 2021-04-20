@@ -60,8 +60,8 @@ public class User {
 	@Column(name = "state")
 	private String state;
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    private List<UserAnswer> userAnswers;
+    /*@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<UserAnswer> userAnswers;*/
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Result> results;
@@ -70,12 +70,12 @@ public class User {
     private List<Exam> exams;
     
     
-    public List<UserAnswer> getUserAnswers() {
+    /*public List<UserAnswer> getUserAnswers() {
     	return userAnswers;
     }
     public void setUserAnswers(List<UserAnswer> userAnswers) {
     	this.userAnswers = userAnswers;
-	}
+	}*/
 	public List<Exam> getExams() {
 		return exams;
 	}

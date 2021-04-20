@@ -10,6 +10,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "tbl_question_bank_boot")
 public class QuestionBank {
@@ -18,8 +20,7 @@ public class QuestionBank {
 	@Column(name = "question_id")
 	private int id;
 	
-	@Column(name = "ques_type")
-	private String type;
+	
 	
 	@Column(name = "marks")
 	private int marks;
@@ -39,36 +40,35 @@ public class QuestionBank {
 	@Column(name = "option_4")
 	private String option4;
 	
-	@Column(name = "option_5")
-	private String option5;
+	
 	
 	@Column(name = "correct_answer")
 	private String correctAnswer;
 	
-	@Column(name = "hint")
-	private String hint;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	
+	@ManyToOne
+	//@JsonIgnore
     @JoinColumn(name = "subject_id")
-    private Subject subjects;
+    private Subject subject;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	/*@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_answer_id")
-    private UserAnswer userAnswers;
+    private UserAnswer userAnswers;*/
 	
 	
 	
-	public UserAnswer getUserAnswers() {
+	/*public UserAnswer getUserAnswers() {
 		return userAnswers;
 	}
 	public void setUserAnswers(UserAnswer userAnswers) {
 		this.userAnswers = userAnswers;
+	}*/
+	public Subject getSubject() {
+		return subject;
 	}
-	public Subject getSubjects() {
-		return subjects;
-	}
-	public void setSubjects(Subject subjects) {
-		this.subjects = subjects;
+	public void setSubject(Subject subject) {
+		this.subject = subject;
 	}
 	public int getId() {
 		return id;
@@ -82,12 +82,7 @@ public class QuestionBank {
 	public void setQuestion(String question) {
 		this.question = question;
 	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
+	
 	public String getCorrectAnswer() {
 		return correctAnswer;
 	}
@@ -124,16 +119,6 @@ public class QuestionBank {
 	public void setOption4(String option4) {
 		this.option4 = option4;
 	}
-	public String getOption5() {
-		return option5;
-	}
-	public void setOption5(String option5) {
-		this.option5 = option5;
-	}
-	public String getHint() {
-		return hint;
-	}
-	public void setHint(String hint) {
-		this.hint = hint;
-	}
+	
+
 }

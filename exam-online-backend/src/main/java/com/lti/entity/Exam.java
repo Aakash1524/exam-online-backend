@@ -29,7 +29,7 @@ public class Exam {
 	@JoinColumn(name = "user_id")
 	private User user;
 	
-	@OneToMany(cascade = CascadeType.ALL,mappedBy="exam")
+	/*@OneToMany(cascade = CascadeType.ALL,mappedBy="exam")
     private List<UserAnswer> userAnswers;
 	
 	
@@ -38,7 +38,7 @@ public class Exam {
 	}
 	public void setUserAnswers(List<UserAnswer> userAnswers) {
 		this.userAnswers = userAnswers;
-	}
+	}*/
 	public User getUser() {
 		return user;
 	}
