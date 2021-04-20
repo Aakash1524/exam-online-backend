@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lti.entity.QuestionBank;
+import com.lti.entity.Subject;
 import com.lti.repository.ExamRepository;
 
 @Service
@@ -20,5 +21,7 @@ public class ExamServiceImpl {
 	public List<QuestionBank> findbyname(String subName) {
 		return  examRepository.fetchQuestions(subName);
 	}
-	
+	public List<QuestionBank> findbyid(int id){
+		return examRepository.fetchQuestion(id);
+	}
 }
