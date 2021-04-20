@@ -16,8 +16,8 @@ public class GmailController {
 	public String gmail() {
 		
 		SimpleMailMessage message = new SimpleMailMessage();
-		message.setFrom("");
-		message.setTo("");
+		message.setFrom("onlineexamlti99@gmail.com");
+		message.setTo("mishrashivangi747@gmail.com");
 		message.setSubject("Test Mail");
 		message.setText("Hi Hi Hi");
 		mailSender.send(message);
