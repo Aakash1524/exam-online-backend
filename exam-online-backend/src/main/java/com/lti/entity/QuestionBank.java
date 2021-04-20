@@ -48,7 +48,7 @@ public class QuestionBank {
 	
 	
 	@ManyToOne
-	//@JsonIgnore
+	@JsonIgnore
     @JoinColumn(name = "subject_id")
     private Subject subject;
 	

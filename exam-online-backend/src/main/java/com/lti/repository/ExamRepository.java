@@ -13,14 +13,14 @@ public class ExamRepository extends GenericRepository {
 		public List<QuestionBank> fetchQuestion(int id){
 		return (List<QuestionBank>)
 				entityManager
-				.createQuery("select q from QuestionBank q inner join q.subjects s where s.id = :id")
+				.createQuery("select q from QuestionBank q inner join q.subject s where s.id = :id")
 				.setParameter("id", id)
 				.getResultList();
 	}
 		public List<QuestionBank> fetchQuestions(String subName){
 			return
 					entityManager
-					.createQuery("select q from QuestionBank q inner join q.subjects s where s.subName = :name ")
+					.createQuery("select q from QuestionBank q join fetch q.subject s where s.subName = :name ")
 					.setParameter("name",subName)
 					.getResultList();
 					
