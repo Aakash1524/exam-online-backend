@@ -1,4 +1,4 @@
-/*package com.lti.entity;
+package com.lti.entity;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -39,7 +39,7 @@ public class Exam {
 	public void setUserAnswers(List<UserAnswer> userAnswers) {
 		this.userAnswers = userAnswers;
 	}*/
-	/*public User getUser() {
+	public User getUser() {
 		return user;
 	}
 	public void setUser(User user) {
@@ -59,4 +59,4 @@ public class Exam {
 	}
 	
 	
-}*/
+}

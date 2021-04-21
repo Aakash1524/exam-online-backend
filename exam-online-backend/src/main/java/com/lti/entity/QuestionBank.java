@@ -10,18 +10,20 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.NamedQuery;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "tbl_question_bank_boot")
-//@NamedQuery(name="QuestionsDetail.findAll", query="SELECT q FROM QuestionsDetail q")
 public class QuestionBank {
 	@Id
 	@GeneratedValue
 	@Column(name = "question_id")
 	private int id;
+	
+	
+	
+	@Column(name = "marks")
+	private int marks;
 	
 	@Column(name = "question")
 	private String question;
@@ -38,19 +40,13 @@ public class QuestionBank {
 	@Column(name = "option_4")
 	private String option4;
 	
-	@Column(name="levels")
-	private int levels;
-
 	
-	public int getLevels() {
-		return levels;
-	}
-	public void setLevels(int levels) {
-		this.levels = levels;
-	}
+	
 	@Column(name = "correct_answer")
 	private String correctAnswer;
-
+	
+	
+	
 	@ManyToOne
 	@JsonIgnore
     @JoinColumn(name = "subject_id")
@@ -58,11 +54,11 @@ public class QuestionBank {
 	
 	/*@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_answer_id")
-    private UserAnswer userAnswers;
+    private UserAnswer userAnswers;*/
 	
 	
 	
-	public UserAnswer getUserAnswers() {
+	/*public UserAnswer getUserAnswers() {
 		return userAnswers;
 	}
 	public void setUserAnswers(UserAnswer userAnswers) {
@@ -93,7 +89,12 @@ public class QuestionBank {
 	public void setCorrectAnswer(String correctAnswer) {
 		this.correctAnswer = correctAnswer;
 	}
-	
+	public int getMarks() {
+		return marks;
+	}
+	public void setMarks(int marks) {
+		this.marks = marks;
+	}
 	public String getOption1() {
 		return option1;
 	}
@@ -119,5 +120,5 @@ public class QuestionBank {
 		this.option4 = option4;
 	}
 	
-	
+
 }
