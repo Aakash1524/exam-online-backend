@@ -1,4 +1,4 @@
-package com.lti.service;
+/*package com.lti.service;
 
 import java.util.Base64;
 
@@ -42,4 +42,4 @@ public class UserService {
 			throw new UserServiceException("Invalid email id and password");
 		}
 	} 
-}
+}*/

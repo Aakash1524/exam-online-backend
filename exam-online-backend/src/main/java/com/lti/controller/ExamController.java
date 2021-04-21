@@ -6,12 +6,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lti.dto.ExamDto;
+import com.lti.dto.QuestionBankDto;
 //import com.lti.dto.ExamStatus;
 import com.lti.entity.QuestionBank;
 import com.lti.service.ExamServiceImpl;
@@ -24,18 +26,18 @@ public class ExamController {
 		private ExamServiceImpl examServiceImpl;
 		
 		
-		@GetMapping("/viewQue")
-		public List<QuestionBank> es(@RequestParam("subName") String subName) {
+		@GetMapping("/viewQue/{subName}/{levels}")
+		public List<QuestionBankDto> es(@PathVariable("subName") String subName, @PathVariable("levels") int levels) {
 			
-			List<QuestionBank> list = examServiceImpl.findbyname(subName);
+			List<QuestionBankDto> list = examServiceImpl.findbyname(subName,levels);
 		//	System.out.println(list.toString());
 			return list;
 			
 		}
 		
-		@GetMapping("/view")
-		public List<QuestionBank> qs(@RequestParam("id") int id ){
-			List<QuestionBank> list = examServiceImpl.findbyid(id);
+		@GetMapping("/view/{id}/{levels}")
+		public List<QuestionBankDto> qs(@PathVariable("id") int id , @PathVariable ("levels") int levels){
+			List<QuestionBankDto> list = examServiceImpl.findbyid(id,levels);
 			//ExamStatus es = new ExamStatus();
 			//es.getQuestion();
 		//	es.getOption1();
@@ -46,5 +48,12 @@ public class ExamController {
 			//List<QuestionBank> list = examServiceImpl.findbyid(examDto.getId());
 			return list;
 		}
+		
+		//@GetMapping("/que")
+		//public List<QuestionBank> qb(@RequestParam("id")int id){
+		//	List<QuestionBank> list = examServiceImpl.fetchQuestions(id);
+			//return list;
+		//}
+		
 		
 }

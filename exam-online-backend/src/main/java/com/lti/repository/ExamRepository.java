@@ -4,28 +4,37 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.lti.entity.Exam;
+import com.lti.dto.QuestionBankDto;
 import com.lti.entity.QuestionBank;
 
 @Repository
+//@EnableMapRepositories(mapType = WeakHashMap.class)
 public class ExamRepository extends GenericRepository {
 
-		public List<QuestionBank> fetchQuestion(int id){
-		return (List<QuestionBank>)
+	
+
+		@SuppressWarnings("unchecked")
+		public List<QuestionBankDto> fetchQuestion(int id,int levels){
+		return 
 				entityManager
-				.createQuery("select q from QuestionBank q inner join q.subject s where s.id = :id")
+				.createQuery("select new com.lti.dto.QuestionBankDto(q.id,q.question,q.option1,q.option2,q.option3,q.option4) from QuestionBank q inner join q.subject s where s.id = :id and q.levels=: levels")
 				.setParameter("id", id)
+				.setParameter("levels", levels)
 				.getResultList();
 	}
-		public List<QuestionBank> fetchQuestions(String subName){
-			return
+		@SuppressWarnings("unchecked")
+		public List<QuestionBankDto> fetchQuestions(String subName,int levels){
+			return 
 					entityManager
-					.createQuery("select q from QuestionBank q join fetch q.subject s where s.subName = :name ")
+					.createQuery("select new com.lti.dto.QuestionBankDto(q.id,q.question,q.option1,q.option2,q.option3,q.option4) from QuestionBank q inner join q.subject s where s.subName = :name and q.levels=: levels")
 					.setParameter("name",subName)
+					.setParameter("levels", levels)
 					.getResultList();
 					
 	
 		}
+		
+		
 		
 		
 		

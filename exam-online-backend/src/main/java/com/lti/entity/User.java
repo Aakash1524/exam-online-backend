@@ -1,4 +1,4 @@
-package com.lti.entity;
+/*package com.lti.entity;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -54,7 +54,7 @@ public class User {
 	/*@Column(name = "rights")
     private String rights;*/
 	
-	@Column(name = "city")
+	/*@Column(name = "city")
 	private String city;
 	
 	@Column(name = "state")
@@ -63,7 +63,7 @@ public class User {
     /*@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<UserAnswer> userAnswers;*/
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    /*@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Result> results;
     
    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
@@ -76,7 +76,7 @@ public class User {
     public void setUserAnswers(List<UserAnswer> userAnswers) {
     	this.userAnswers = userAnswers;
 	}*/
-	public List<Exam> getExams() {
+	/*public List<Exam> getExams() {
 		return exams;
 	}
 	public void setExams(List<Exam> exams) {
@@ -96,7 +96,7 @@ public class User {
 		this.rights = rights;
 	}*/
 	
-	public int getId() {
+	/*public int getId() {
         return id;
     }
     public void setId(int id) {
@@ -168,5 +168,5 @@ public class User {
 	public void setState(String state) {
 		this.state = state;
 	}
-}
+}*/
  

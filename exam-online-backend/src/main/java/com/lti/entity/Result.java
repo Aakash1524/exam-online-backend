@@ -1,4 +1,4 @@
-package com.lti.entity;
+/*package com.lti.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tbl_results_boot")
+@Table(name = "tbl_results")
 public class Result {
 	@Id
 	@GeneratedValue
@@ -61,4 +61,4 @@ public class Result {
 	public void setAttempts(int attempts) {
 		this.attempts = attempts;
 	}
-}
+}*/

@@ -25,7 +25,7 @@ public class Subject {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "subject" )
 	private List<QuestionBank> questions;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "subject")
+	/*@OneToMany(cascade = CascadeType.ALL, mappedBy = "subject")
 	private List<Result> results;
 	
 	
@@ -37,7 +37,7 @@ public class Subject {
 
 	public void setResults(List<Result> results) {
 		this.results = results;
-	}
+	}*/
 
 	public List<QuestionBank> getQuestions() {
 		return questions;
