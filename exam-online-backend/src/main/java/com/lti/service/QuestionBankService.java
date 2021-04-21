@@ -23,8 +23,8 @@ public class QuestionBankService {
 		QuestionBank add = (QuestionBank) questionBankRepository.save(questionBank);
 		return add.getId();
 	}
-	public List<QuestionBank> viewQuestion(String subName) {
-		return questionBankRepository.fetchBySubjectName(subName);
+	public List<QuestionBank> viewQuestion(String subName, int levels) {
+		return questionBankRepository.fetchBySubjectNameAndLevel(subName,levels);
 		
 	}
 }

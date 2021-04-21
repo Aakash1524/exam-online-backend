@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tbl_results")
+@Table(name = "tbl_result_boot")
 public class Result {
 	@Id
 	@GeneratedValue

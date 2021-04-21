@@ -3,23 +3,24 @@ package com.lti.entity;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.NamedQuery;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "tbl_question_bank")
-//@NamedQuery(name="QuestionsDetail.findAll", query="SELECT q FROM QuestionsDetail q")
+@Table(name = "tbl_question_bank_trial")
 public class QuestionBank {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "my_seq_ques")
+	@SequenceGenerator(sequenceName = "question_seq", allocationSize = 1, name = "my_seq_ques")
 	@Column(name = "question_id")
 	private int id;
 	
@@ -38,31 +39,24 @@ public class QuestionBank {
 	@Column(name = "option_4")
 	private String option4;
 	
-	@Column(name="levels")
-	private int levels;
-
-	
-	public int getLevels() {
-		return levels;
-	}
-	public void setLevels(int levels) {
-		this.levels = levels;
-	}
 	@Column(name = "correct_answer")
 	private String correctAnswer;
-
-	@ManyToOne
-	@JsonIgnore
+	
+	@Column(name = "marks")
+	private int marks;
+	
+	@Column(name = "levels")
+	private int levels;
+	
+	@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "subject_id")
     private Subject subject;
 	
 	/*@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_answer_id")
-    private UserAnswer userAnswers;
+    private UserAnswer userAnswers;*/
 	
-	
-	
-	public UserAnswer getUserAnswers() {
+	/*public UserAnswer getUserAnswers() {
 		return userAnswers;
 	}
 	public void setUserAnswers(UserAnswer userAnswers) {
@@ -93,7 +87,12 @@ public class QuestionBank {
 	public void setCorrectAnswer(String correctAnswer) {
 		this.correctAnswer = correctAnswer;
 	}
-	
+	public int getMarks() {
+		return marks;
+	}
+	public void setMarks(int marks) {
+		this.marks = marks;
+	}
 	public String getOption1() {
 		return option1;
 	}
@@ -118,6 +117,11 @@ public class QuestionBank {
 	public void setOption4(String option4) {
 		this.option4 = option4;
 	}
-	
+	public int getLevels() {
+		return levels;
+	}
+	public void setLevels(int levels) {
+		this.levels = levels;
+	}
 	
 }

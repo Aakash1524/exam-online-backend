@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "tbl_subjects_boot")
 public class Subject {
@@ -23,13 +25,11 @@ public class Subject {
 	private String subName;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "subject" )
+	@JsonIgnore
 	private List<QuestionBank> questions;
 	
 	/*@OneToMany(cascade = CascadeType.ALL, mappedBy = "subject")
 	private List<Result> results;
-	
-	
-	
 	
 	public List<Result> getResults() {
 		return results;

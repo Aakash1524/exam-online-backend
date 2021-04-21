@@ -8,11 +8,12 @@ import com.lti.entity.QuestionBank;
 @Repository
 public class QuestionBankRepository extends GenericRepository {
 	
-	public List<QuestionBank> fetchBySubjectName(String subName){
+	public List<QuestionBank> fetchBySubjectNameAndLevel(String subName, int level){
 		return
 				entityManager
-				.createQuery("select q from QuestionBank q inner join q.subject s where s.subName = :name ")
+				.createQuery("select q from QuestionBank q inner join q.subject s where s.subName = :name and q.levels= :levels")
 				.setParameter("name", subName)
+				.setParameter("level", level)
 				.getResultList();
 	}
 }

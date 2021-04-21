@@ -22,7 +22,6 @@ public class SubjectController {
 	public List<Subject> fetchSubjects() {
 		 
 			List<Subject> sub = subjectService.fetchSubjectNames();
-			
 			return sub;
 	}
 }
