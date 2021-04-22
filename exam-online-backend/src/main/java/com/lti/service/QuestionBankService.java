@@ -1,4 +1,5 @@
 
+
 package com.lti.service;
 
 import java.util.List;
@@ -27,4 +28,8 @@ public class QuestionBankService {
 		return questionBankRepository.fetchBySubjectNameAndLevel(subName,levels);
 		
 	}
+	public void update(List<Integer> qb) {
+		 questionBankRepository.updateStatus(qb);
+	}
 }
+

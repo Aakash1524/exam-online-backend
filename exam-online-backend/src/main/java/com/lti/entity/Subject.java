@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "tbl_subjects_boot")
 public class Subject {
 	@Id
-	@GeneratedValue
+	@GeneratedValue 
 	@Column(name = "subject_id")
 	private int id;
 	

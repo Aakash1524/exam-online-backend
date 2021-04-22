@@ -20,5 +20,8 @@ public class SubjectService {
 	public List<Subject> fetchSubjectNames(){
 		return subjectRepository.fetchSubjectName();
 	}
+	public List<Subject> fetchSubjects(){
+		return subjectRepository.fetchSubjectNameAndId();
+	}
 
 }

@@ -16,7 +16,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "tbl_question_bank_trial")
+@Table(name = "tbl_question_bank_boot")
 public class QuestionBank {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "my_seq_ques")
@@ -47,6 +47,9 @@ public class QuestionBank {
 	
 	@Column(name = "levels")
 	private int levels;
+	
+	@Column(name = "status")
+	private boolean status = true; 
 	
 	@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "subject_id")
@@ -122,6 +125,12 @@ public class QuestionBank {
 	}
 	public void setLevels(int levels) {
 		this.levels = levels;
+	}
+	public boolean isStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 	
 }

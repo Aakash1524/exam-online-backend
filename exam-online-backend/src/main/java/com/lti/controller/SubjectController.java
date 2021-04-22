@@ -22,7 +22,14 @@ public class SubjectController {
 	public List<Subject> fetchSubjects() {
 		 
 			List<Subject> sub = subjectService.fetchSubjectNames();
+			
+			return sub;
+	}
+	@GetMapping("/fetchSubjects") 
+	public List<Subject> fetchSub() {
+		 
+			List<Subject> sub = subjectService.fetchSubjects();
+			
 			return sub;
 	}
 }
-//@RequestParam("subName") String subName

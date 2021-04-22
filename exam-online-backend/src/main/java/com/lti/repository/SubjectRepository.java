@@ -15,4 +15,11 @@ public class SubjectRepository extends GenericRepository{
 				.createQuery("select s.subName from Subject s")
 				.getResultList();
 	}
+	public List<Subject> fetchSubjectNameAndId(){
+		return
+				entityManager
+				.createQuery("select s from Subject s")
+				.getResultList();
+	}
+	
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +16,7 @@ import com.lti.dto.RegisterStatus;
 import com.lti.entity.QuestionBank;
 import com.lti.exception.QuestionBankException;
 import com.lti.service.QuestionBankService;
-
+//import com.lti.service.SubjectService;
 
 @RestController
 @CrossOrigin
@@ -24,7 +25,6 @@ public class QuestionBankController {
 	@Autowired
 	private QuestionBankService questionBankService;
 	
-
 	@PostMapping("/add")
 	public QuestionBankStatus storeQuestions(@RequestBody QuestionBank questionBank) {
 		try {
@@ -42,11 +42,17 @@ public class QuestionBankController {
 			return status;
 		}
 	}
-	@GetMapping("/viewQuestion/{subName}/{levels}") 
-	public List<QuestionBank> fetchQuestion(@PathVariable("subName") String subName,@PathVariable("levels") int levels ) {
+	@GetMapping("/viewQuestion/{subName}/{levels}/{status}") 
+	public List<QuestionBank> fetchQuestion(@PathVariable("subName") String subName,@PathVariable("levels") int levels) {
 		 
 			List<QuestionBank> qb = questionBankService.viewQuestion(subName,levels);
 			
 			return qb;
 	}
-}
+	@GetMapping("/removeQuestion/")
+		public void updateQuestionStatus(@PathVariable List<Integer> qb) {
+			questionBankService.update(qb);
+			
+		}
+	}
+
