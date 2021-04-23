@@ -1,4 +1,4 @@
-/*package com.lti.entity;
+package com.lti.entity;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -51,52 +51,43 @@ public class User {
 	@Column(name = "qualification")
     private String qualification;
 	
-	/*@Column(name = "rights")
-    private String rights;*/
+	@Column(name = "rights")
+    private String rights;
 	
-	/*@Column(name = "city")
+	@Column(name = "city")
 	private String city;
 	
 	@Column(name = "state")
 	private String state;
     
     /*@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    private List<UserAnswer> userAnswers;*/
+    private List<UserAnswer> userAnswers;
     
-    /*@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Result> results;
-    
-   @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    private List<Exam> exams;
-    
-    
-    /*public List<UserAnswer> getUserAnswers() {
+
+    public List<UserAnswer> getUserAnswers() {
     	return userAnswers;
     }
     public void setUserAnswers(List<UserAnswer> userAnswers) {
     	this.userAnswers = userAnswers;
-	}*/
-	/*public List<Exam> getExams() {
-		return exams;
 	}
-	public void setExams(List<Exam> exams) {
-		this.exams = exams;
-	}
+
 	public List<Result> getResults() {
 		return results;
 	}
 	public void setResults(List<Result> results) {
 		this.results = results;
-	}
+	}*/
 	
-	/*public String getRights() {
+	public String getRights() {
 		return rights;
 	}
 	public void setRights(String rights) {
 		this.rights = rights;
-	}*/
+	}
 	
-	/*public int getId() {
+	public int getId() {
         return id;
     }
     public void setId(int id) {
@@ -168,5 +159,5 @@ public class User {
 	public void setState(String state) {
 		this.state = state;
 	}
-}*/
+}
  
