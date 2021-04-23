@@ -18,9 +18,10 @@ public class QuestionBankRepository extends GenericRepository {
 	}
 	public void updateStatus(List<Integer> qb) {
 		
-			entityManager
-			.createQuery("UPDATE QuestionBank q SET q.status = :status where q.id in :(qb)")
-			.setParameter("status", false)
-			.executeUpdate();	
+		entityManager
+		.createQuery("UPDATE QuestionBank q SET q.status = :status where q.id in (:qb)")
+		.setParameter("status", false)
+		.setParameter("qb", qb)
+		.executeUpdate();	
 	}
 }

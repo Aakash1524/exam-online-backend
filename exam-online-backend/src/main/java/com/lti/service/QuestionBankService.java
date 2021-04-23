@@ -18,8 +18,6 @@ public class QuestionBankService {
 	@Autowired
 	private QuestionBankRepository questionBankRepository;
 	
-	
-	
 	public int addQuestion(QuestionBank questionBank) {
 		QuestionBank add = (QuestionBank) questionBankRepository.save(questionBank);
 		return add.getId();

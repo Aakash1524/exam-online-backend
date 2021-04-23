@@ -42,17 +42,18 @@ public class QuestionBankController {
 			return status;
 		}
 	}
-	@GetMapping("/viewQuestion/{subName}/{levels}/{status}") 
+	@GetMapping("/viewQuestion/{subName}/{levels}") 
 	public List<QuestionBank> fetchQuestion(@PathVariable("subName") String subName,@PathVariable("levels") int levels) {
 		 
 			List<QuestionBank> qb = questionBankService.viewQuestion(subName,levels);
 			
 			return qb;
 	}
-	@GetMapping("/removeQuestion/")
-		public void updateQuestionStatus(@PathVariable List<Integer> qb) {
-			questionBankService.update(qb);
-			
-		}
+	@PostMapping("/removeQuestion")
+	public void updateQuestionStatus(@RequestBody List<Integer> qb) {
+		questionBankService.update(qb);
+		
 	}
+	
+}
 
