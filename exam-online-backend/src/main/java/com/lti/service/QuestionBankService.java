@@ -1,5 +1,4 @@
 
-
 package com.lti.service;
 
 import java.util.List;
@@ -18,6 +17,8 @@ public class QuestionBankService {
 	@Autowired
 	private QuestionBankRepository questionBankRepository;
 	
+	
+	
 	public int addQuestion(QuestionBank questionBank) {
 		QuestionBank add = (QuestionBank) questionBankRepository.save(questionBank);
 		return add.getId();
@@ -26,8 +27,10 @@ public class QuestionBankService {
 		return questionBankRepository.fetchBySubjectNameAndLevel(subName,levels);
 		
 	}
-	public void update(List<Integer> qb) {
-		 questionBankRepository.updateStatus(qb);
+	public void updateFalse(List<Integer> qb) {
+		 questionBankRepository.updateStatusFalse(qb);
+	}
+	public void updateTrue(List<Integer> qb) {
+		 questionBankRepository.updateStatusTrue(qb);
 	}
 }
-

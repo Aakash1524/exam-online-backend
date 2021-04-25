@@ -49,11 +49,17 @@ public class QuestionBankController {
 			
 			return qb;
 	}
-	@PostMapping("/removeQuestion")
-	public void updateQuestionStatus(@RequestBody List<Integer> qb) {
-		questionBankService.update(qb);
+	@PostMapping("/questionInactive")
+	
+		public void updateQuestionStatusFalse(@RequestBody List<Integer> qb) {
+			questionBankService.updateFalse(qb);
+			
+		}
+	@PostMapping("/questionActive")
+	
+	public void updateQuestionStatusTrue(@RequestBody List<Integer> qb) {
+		questionBankService.updateTrue(qb);
 		
 	}
-	
 }
 

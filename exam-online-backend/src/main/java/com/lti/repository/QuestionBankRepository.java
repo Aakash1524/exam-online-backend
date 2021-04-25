@@ -16,11 +16,19 @@ public class QuestionBankRepository extends GenericRepository {
 				.setParameter("levels", levels)			
 				.getResultList();
 	}
-	public void updateStatus(List<Integer> qb) {
+	public void updateStatusFalse(List<Integer> qb) {
+		
+			entityManager
+			.createQuery("UPDATE QuestionBank q SET q.status = :status where q.id in (:qb)")
+			.setParameter("status", false)
+			.setParameter("qb", qb)
+			.executeUpdate();	
+	}
+	public void updateStatusTrue(List<Integer> qb) {
 		
 		entityManager
 		.createQuery("UPDATE QuestionBank q SET q.status = :status where q.id in (:qb)")
-		.setParameter("status", false)
+		.setParameter("status", true)
 		.setParameter("qb", qb)
 		.executeUpdate();	
 	}

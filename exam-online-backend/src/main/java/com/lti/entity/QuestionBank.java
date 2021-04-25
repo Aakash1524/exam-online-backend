@@ -16,7 +16,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "tbl_question_bank_boot")
+@Table(name = "tbl_question_bank_trial")
 public class QuestionBank {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "my_seq_ques")
@@ -51,7 +51,7 @@ public class QuestionBank {
 	@Column(name = "status")
 	private boolean status = true; 
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne//(fetch=FetchType.LAZY)
     @JoinColumn(name = "subject_id")
     private Subject subject;
 	
@@ -59,6 +59,11 @@ public class QuestionBank {
     @JoinColumn(name = "user_answer_id")
     private UserAnswer userAnswers;*/
 	
+
+	public QuestionBank(int parseInt, String string, String string2, String string3, String string4, String string5,
+			String string6, int parseInt2, int parseInt3, boolean parseBoolean) {
+		// TODO Auto-generated constructor stub
+	}
 	/*public UserAnswer getUserAnswers() {
 		return userAnswers;
 	}
@@ -132,5 +137,10 @@ public class QuestionBank {
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
+	  @Override
+	  public String toString() {
+	    return "Tutorial [id=" + id + ", question=" + question + ", option1=" + option1 + ", option2=" + option2 + ", option3=" + option3 + ""
+	    		+ " , option4=" + option4 + ", correctAnswer=" + correctAnswer + ", marks=" + marks + ", levels=" + levels + ", status=" + status + ", subject=" + subject +"]";
+	  }
 	
 }
