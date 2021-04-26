@@ -17,7 +17,7 @@ public class Result {
 	private int id;
 	
 	@Column(name = "score")
-	private float score;
+	private int score;
 	
 	@Column(name = "attempts")
 	private int attempts;
@@ -59,10 +59,11 @@ public class Result {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public float getScore() {
+	
+	public int getScore() {
 		return score;
 	}
-	public void setScore(float score) {
+	public void setScore(int score) {
 		this.score = score;
 	}
 	public int getAttempts() {

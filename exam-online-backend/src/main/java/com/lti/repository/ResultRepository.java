@@ -97,4 +97,27 @@ public class ResultRepository extends GenericRepository{
 				.setParameter("level",level)
 				.getResultList();
 	}
+	
+	public int fetchAttempts(String subject, int level, int uid) {
+		return (int) entityManager
+				.createQuery("select max(r.attempts) from Result r where r.subject.subName =: subject and "
+						+ "r.rLevel =: level and r.user.id =: uid")
+				.setParameter("subject", subject)
+				.setParameter("level", level)
+				.setParameter("uid", uid)
+				.getSingleResult();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

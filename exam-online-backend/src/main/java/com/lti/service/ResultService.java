@@ -11,8 +11,11 @@ import org.springframework.stereotype.Service;
 
 import com.lti.dto.DisplayResultDto;
 import com.lti.dto.ResultDto;
+import com.lti.dto.SaveResultDto;
 import com.lti.dto.TestHistoryDto;
 import com.lti.dto.UserDto;
+import com.lti.entity.Result;
+import com.lti.entity.User;
 import com.lti.exception.UserServiceException;
 import com.lti.repository.ResultRepository;
 
@@ -81,4 +84,18 @@ public class ResultService {
 		return list;
 	}
 	
+	public int attempts(String subject, int level, int uid) {
+		try {
+			return resultRepository.fetchAttempts(subject,level,uid);	
+		}
+		catch(EmptyResultDataAccessException e) {
+			throw new UserServiceException("0");
+		}
+	}
+	
+	public Result saveResult(Result sr) {
+		Result save = (Result) resultRepository.save(sr);
+		//EmailIntegration
+		return save;
+	}
 }
