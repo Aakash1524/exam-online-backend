@@ -29,20 +29,39 @@ public class ResultController {
 	@Autowired
 	public ResultService resultService;
 	
-	@PostMapping("/score")
-	public SaveResultDto marks(@RequestBody Result result) { 
-
-		Result result1 = resultService.saveResult(result);
-		SaveResultDto srd = new SaveResultDto();
-		srd.setAttempts(result1.getAttempts());
-		srd.setScore(result1.getScore());
-		if(result1.getScore()>= 70) {
-			srd.setStatus("Pass");
+	@GetMapping("/score")
+	public ResultDto marks(@RequestParam(value="sName") String sName, @RequestParam(value="uid") int uid,
+	@RequestParam(value="level") int level ) {
+		int attempts;
+		try {
+			int currScore = resultService.fetchScore(sName, uid, level);
+		try{
+			attempts = resultService.fetchAttempts(sName, uid, level);
+			System.out.println(attempts);
+		}
+		catch(UserServiceException e) {
+			attempts = 0;
+			System.out.println(attempts);
+		}
+		ResultDto rdto = new ResultDto();
+		if(currScore<70) {
+			rdto.setScore(currScore);
+			rdto.setStatus("Fail");
+			rdto.setAttempts(attempts);
+			return rdto;
 		}
 		else {
-			srd.setStatus("Fail");
+			rdto.setScore(currScore);
+			rdto.setStatus("Pass");
+			rdto.setAttempts(attempts);
+			return rdto;
 		}
-		return srd;
+		}
+		catch(UserServiceException e) {
+			ResultDto rdto = new ResultDto();
+			rdto.setStatus(e.getMessage());
+			return rdto ;
+		}
 	}
 	
 	/*@GetMapping("/subName")
@@ -56,24 +75,19 @@ public class ResultController {
 	
 	/* Fetching of result on submit test */
 	
-	@GetMapping("/rid")
-	public ResultDto fetchResult(@RequestParam(value="rid") int rid, @RequestParam(value="sName") String sName,
-			@RequestParam(value="uid") int uid, @RequestParam(value="level") int level){
-		List<DisplayResultDto> result = resultService.fetchResult(rid);
-		
-		int highestMarks = resultService.fetchScore(sName, uid, level);
-		
-		ResultDto rdto = new ResultDto();
-		rdto.setScore((int)result.get(0).getScore());
-		rdto.setAttempts((int)result.get(0).getAttempts());
-		rdto.setHighestMarks(highestMarks);
-		if(rdto.getScore()<70) {
-			rdto.setStatus("Fail");
+	@PostMapping("/result")
+	public SaveResultDto fetchResult(@RequestBody Result result){
+		Result result1 = resultService.saveResult(result);
+		SaveResultDto srd = new SaveResultDto();
+		srd.setAttempts(result1.getAttempts());
+		srd.setScore(result1.getScore());
+		if(result1.getScore()>= 70) {
+			srd.setStatus("Pass");
 		}
 		else {
-			rdto.setStatus("Pass");
+			srd.setStatus("Fail");
 		}
-		return rdto;
+		return srd;
 	}
 	
 	@GetMapping("/resultHistory")
