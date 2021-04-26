@@ -31,9 +31,7 @@ public class ResultService {
 		level.add(1);
 		return Collections.max(level);
 		}
-	
-		catch(EmptyResultDataAccessException e) {
-			
+		catch(EmptyResultDataAccessException e) {	
 			throw new UserServiceException("1");
 		}
 	}

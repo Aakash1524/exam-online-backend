@@ -8,12 +8,11 @@ public class QuestionBankDto extends ExamDto {
 	 private String option2;
 	 private String option3;
 	 private String option4;
-	
-	 
-	 
+	 private String correctAnswer;
 	
 
-	public QuestionBankDto(int id, String question, String option1, String option2, String option3, String option4) {
+	public QuestionBankDto(int id, String question, String option1, String option2, String option3, String option4,
+			String correctAnswer) {
 		super();
 		this.id = id;
 		this.question = question;
@@ -21,6 +20,7 @@ public class QuestionBankDto extends ExamDto {
 		this.option2 = option2;
 		this.option3 = option3;
 		this.option4 = option4;
+		this.correctAnswer = correctAnswer;
 		
 	}
 	
@@ -65,12 +65,20 @@ public class QuestionBankDto extends ExamDto {
 		this.option4 = option4;
 	}
 	
+	public String getCorrectAnswer() {
+		return correctAnswer;
+	}
+
+	public void setCorrectAnswer(String correctAnswer) {
+		this.correctAnswer = correctAnswer;
+	}
+	
 	 
 	 @Override
 		public String toString() {
 			return "QuestionBankDto [questionid=" + id + ", optiona=" + option1 + ","
-					+ " optionb=" + option2 + ", optionc=" + option3 + ", optiond=" + option4 + ", question=" + question
-					+ "]";
+					+ " optionb=" + option2 + ", optionc=" + option3 + ", optiond=" + option4 + 
+					", question=" + question + ", correctAnswer=" + correctAnswer + "]";
 		}
 		
 		

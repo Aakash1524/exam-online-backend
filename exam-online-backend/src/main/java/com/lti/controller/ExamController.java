@@ -26,18 +26,20 @@ public class ExamController {
 		private ExamServiceImpl examServiceImpl;
 		
 		
-		@GetMapping("/viewQue/{subName}/{levels}")
-		public List<QuestionBankDto> es(@PathVariable("subName") String subName, @PathVariable("levels") int levels) {
+		@GetMapping("/viewQue/{subName}/{levels}/{status}")
+		public List<QuestionBankDto> es(@PathVariable("subName") String subName, 
+				@PathVariable("levels") int levels, @PathVariable("status") boolean status) {
 			
-			List<QuestionBankDto> list = examServiceImpl.findbyname(subName,levels);
+			List<QuestionBankDto> list = examServiceImpl.findbyname(subName,levels,status);
 		//	System.out.println(list.toString());
 			return list;
 			
 		}
 		
-		@GetMapping("/view/{id}/{levels}")
-		public List<QuestionBankDto> qs(@PathVariable("id") int id , @PathVariable ("levels") int levels){
-			List<QuestionBankDto> list = examServiceImpl.findbyid(id,levels);
+		@GetMapping("/view/{id}/{levels}/{status}")
+		public List<QuestionBankDto> qs(@PathVariable("id") int id , 
+				@PathVariable ("levels") int levels, @PathVariable("status") boolean status){
+			List<QuestionBankDto> list = examServiceImpl.findbyid(id,levels,status);
 			//ExamStatus es = new ExamStatus();
 			//es.getQuestion();
 		//	es.getOption1();

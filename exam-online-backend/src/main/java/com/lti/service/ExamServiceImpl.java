@@ -21,11 +21,12 @@ public class ExamServiceImpl {
 	@Autowired
 	private ExamRepository examRepository;
 	
-	public List<QuestionBankDto> findbyname(String subName,int levels) {
-		return  examRepository.fetchQuestions(subName,levels);
+	public List<QuestionBankDto> findbyname(String subName,int levels, boolean status) {
+		return  examRepository.fetchQuestions(subName,levels,status);
 	}
-	public List<QuestionBankDto> findbyid(int id,int levels){
-		return examRepository.fetchQuestion(id,levels);
+	
+	public List<QuestionBankDto> findbyid(int id,int levels, boolean status){
+		return examRepository.fetchQuestion(id,levels,status);
 	}
 	
 	/*public Subject get(String subName) {

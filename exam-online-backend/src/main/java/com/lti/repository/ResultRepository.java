@@ -49,7 +49,7 @@ public class ResultRepository extends GenericRepository{
 	public List<Integer> score(String sName, int uid, int level) {  
 		return entityManager
 				.createQuery("select r.score from Result r inner join r.subject s where s.subName=: sName "
-						+ "and r.user.id=: uid and r.level=:level") 
+						+ "and r.user.id=: uid and r.rLevel=:level") 
 				.setParameter("sName", sName)
 				.setParameter("uid",uid)
 				.setParameter("level",level)
@@ -60,7 +60,7 @@ public class ResultRepository extends GenericRepository{
 		return 
 				entityManager
 				.createQuery("select r.attempts from Result r inner join r.subject s where s.subName=: sName "
-						+ "and r.user.id=: uid and r.level=:level")
+						+ "and r.user.id=: uid and r.rLevel=:level")
 				.setParameter("sName",sName)
 				.setParameter("uid",uid)
 				.setParameter("level",level)
@@ -78,7 +78,7 @@ public class ResultRepository extends GenericRepository{
 	@SuppressWarnings("unchecked")
 	public List<TestHistoryDto> testHistory(int uid) {
 		return  entityManager
-				.createQuery("select new com.lti.dto.TestHistoryDto(r.subject.subName, r.level, r.attempts, r.score) "
+				.createQuery("select new com.lti.dto.TestHistoryDto(r.subject.subName, r.rLevel, r.attempts, r.score) "
 						+ "from Result r inner join r.user u where u.id= : uid")
 				.setParameter("uid", uid)
 				.getResultList();
@@ -90,7 +90,7 @@ public class ResultRepository extends GenericRepository{
 				.createQuery("select distinct new com.lti.dto.UserDto(u.firstName, u.middleName, u.lastName, u.phoneNo, "
 						+ "u.email, u.city, u.state) from User u inner join u.results r inner join r.subject s "
 						+ "where r.user.city = :city and r.user.state = :state and r.subject.subName = :subject "
-						+ "and r.level = :level")
+						+ "and r.rLevel = :level")
 				.setParameter("city",city)
 				.setParameter("state",state)
 				.setParameter("subject",subject)

@@ -61,24 +61,24 @@ public class User {
 	private String state;
     
     /*@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    private List<UserAnswer> userAnswers;
+    private List<UserAnswer> userAnswers;*/
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Result> results;
 
-    public List<UserAnswer> getUserAnswers() {
+    /*public List<UserAnswer> getUserAnswers() {
     	return userAnswers;
     }
     public void setUserAnswers(List<UserAnswer> userAnswers) {
     	this.userAnswers = userAnswers;
-	}
+	}*/
 
 	public List<Result> getResults() {
 		return results;
 	}
 	public void setResults(List<Result> results) {
 		this.results = results;
-	}*/
+	}
 	
 	public String getRights() {
 		return rights;

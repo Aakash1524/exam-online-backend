@@ -2,15 +2,15 @@ package com.lti.dto;
 
 public class TestHistoryDto {
 	private  String subName;
-	private int level;
+	private int rLevel;
 	private int attempts;
 	private int score;
 	
 	
-	public TestHistoryDto(String subName, int level, int attempts, int score) {
+	public TestHistoryDto(String subName, int rLevel, int attempts, int score) {
 		super();
 		this.subName = subName;
-		this.level = level;
+		this.rLevel = rLevel;
 		this.attempts = attempts;
 		this.score = score;
 	}
@@ -26,12 +26,15 @@ public class TestHistoryDto {
 	public void setSubName(String subName) {
 		this.subName = subName;
 	}
-	public int getLevel() {
-		return level;
+	
+	public int getrLevel() {
+		return rLevel;
 	}
-	public void setLevel(int level) {
-		this.level = level;
+
+	public void setrLevel(int rLevel) {
+		this.rLevel = rLevel;
 	}
+
 	public int getAttempts() {
 		return attempts;
 	}
@@ -47,7 +50,7 @@ public class TestHistoryDto {
 	
 	 @Override
 		public String toString() {
-			return "TestHistoryDto [subject : " + subName + ", level : " + level + ", attempts : " + attempts + ", score : " + score +
+			return "TestHistoryDto [subject : " + subName + ", rLevel : " + rLevel + ", attempts : " + attempts + ", score : " + score +
 					"]";
 		}
 }

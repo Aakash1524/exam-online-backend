@@ -1,4 +1,4 @@
-/*package com.lti.entity;
+package com.lti.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,7 +30,17 @@ public class Result {
 	@JoinColumn(name = "subject_id")
 	private Subject subject;
 	
+	@JoinColumn(name = "sub_level")
+	private int rLevel;
 	
+	
+	public int getrLevel() {
+		return rLevel;
+	}
+	public void setrLevel(int rLevel) {
+		this.rLevel = rLevel;
+	}
+
 	public Subject getSubject() {
 		return subject;
 	}
@@ -61,4 +71,4 @@ public class Result {
 	public void setAttempts(int attempts) {
 		this.attempts = attempts;
 	}
-}*/
+}
