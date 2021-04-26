@@ -29,6 +29,7 @@ public class Subject {
 	private List<QuestionBank> questions;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "subject")
+	@JsonIgnore
 	private List<Result> results;
 	
 	public List<Result> getResults() {

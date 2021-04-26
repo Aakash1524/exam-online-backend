@@ -77,7 +77,9 @@ public class ResultController {
 	
 	@PostMapping("/result")
 	public SaveResultDto fetchResult(@RequestBody Result result){
-		Result result1 = resultService.saveResult(result);
+		System.out.println("In result component");
+		Result result1 = resultService.saveResult(result); 
+		
 		SaveResultDto srd = new SaveResultDto();
 		srd.setAttempts(result1.getAttempts());
 		srd.setScore(result1.getScore());

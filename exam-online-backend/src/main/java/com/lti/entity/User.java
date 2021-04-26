@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 //***************************** User Entity ******************************
 @Entity
 @Table(name = "tbl_user_boot")
@@ -64,6 +66,7 @@ public class User {
     private List<UserAnswer> userAnswers;*/
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    @JsonIgnore
     private List<Result> results;
 
     /*public List<UserAnswer> getUserAnswers() {
