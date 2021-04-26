@@ -1,6 +1,7 @@
 package com.lti.controller;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,7 @@ public class ExamController {
 			
 			List<QuestionBankDto> list = examServiceImpl.findbyname(subName,levels,status);
 		//	System.out.println(list.toString());
+			Collections.shuffle(list);
 			return list;
 			
 		}
