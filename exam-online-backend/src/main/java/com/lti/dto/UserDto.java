@@ -2,6 +2,7 @@ package com.lti.dto;
 
 public class UserDto {
 	
+	private int id;
 	private String firstName;
 	private String middleName;
 	private String lastName;
@@ -11,9 +12,10 @@ public class UserDto {
 	private String state;
 	
 	
-	public UserDto(String firstName, String middleName, String lastName, String phoneNo, String email, String city,
+	public UserDto(int id, String firstName, String middleName, String lastName, String phoneNo, String email, String city,
 			String state) {
 		super();
+		this.id = id;
 		this.firstName = firstName;
 		this.middleName = middleName;
 		this.lastName = lastName;
@@ -23,6 +25,12 @@ public class UserDto {
 		this.state = state;
 	}
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getFirstName() {
 		return firstName;
 	}
@@ -71,7 +79,7 @@ public class UserDto {
 	
 	@Override
 	public String toString() {
-		return "UserDto [firstName : " + firstName + ", lastName : " + lastName + ", middleName : " + middleName + 
+		return "UserDto [id : " +id + ", firstName : " + firstName + ", lastName : " + lastName + ", middleName : " + middleName + 
 				", email : " + email + ", phoneNo : "+ phoneNo + ", city : " + city + ", state : " + state + "]";
 	}
 }
